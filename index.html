@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Encriptador de Texto</title>
 </head>
 
@@ -17,14 +18,22 @@
             <p>Ingrese en la primer caja un texto a encriptar o desencriptar</p>
             <p>Verá el resultado en la caja debajo de los botones</p>
         </header>
-        <textarea name="" id="texto-input" cols="30" rows="10" style="resize: none;"></textarea>
+        <div class="text-container">
+            <textarea name="" id="texto-input" cols="30" rows="10" style="resize: none"
+                placeholder="Ingrese su texto"></textarea>
+        </div>
 
-        <div>
+
+        <div id="buttons">
             <button id="encriptar">Encriptar</button>
             <button id="desencriptar">Desencriptar</button>
         </div>
 
-        <textarea name="" id="texto-output" cols="30" rows="10" style="resize: none;"></textarea>
+        <div class="text-container">
+            <textarea name="" id="texto-output" cols="30" rows="10" style="resize: none"
+                placeholder="texto procesado"></textarea>
+        </div>
+
     </main>
 
 
