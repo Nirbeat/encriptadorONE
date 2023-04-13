@@ -1,37 +1,154 @@
-*{
+* {
+
     padding: 0;
     margin: 0;
-    border: 0;
+    border: none;
+    /* overflow: hidden; */
 }
 
-p{
-    width:fit-content;
-    margin: 0 auto;
-    padding: 0.5em 1em;
+body {
+
+    background: #E5E5E5;
+    /* height: 300px */
 }
 
-.text-container{
-    width: fit-content;
-    margin: 0 auto;
+main {
+
+    margin: 40px 40px 40px 40px;
 }
 
-textarea{
+#logo {
 
-    margin: 0 auto;
+    width: auto;
+    height: 48px;
 }
 
-#buttons{
+p,
+h3,
+button {
+
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+
+}
+
+h3{
+    font-weight: 700;
+font-size: 24px;
+margin-top: 20px;
+margin-left: 32px;
+margin-right: 32px;
+padding: 15px 0;
+line-height: 120%;
+
+
+}
+
+
+
+textarea {
+    resize: none;
+    background-color: #E5E5E5;
+}
+
+#input {
+
+    position: absolute;
+    width: 680px;
+    height: 560px;
+    left: 155px;
+    top: 168px;
+    color: #0A3871;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+}
+
+.output {
+    position: absolute;
+    width: 400px;
+    height: 80%;
+    left: 900px;
+    top: 150px;
+    background: #FFFFFF;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.output > img{
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.output > p{
+    font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+}
+
+#alert {
+
     display: flex;
-    flex-direction: row;
-    height: fit-content;
-    width: fit-content;
-    margin: auto;
-    
-}
-button{
-    background: transparent;
-    border:none;
-    padding: 0 10em;
-    margin: 0 3em;
+    margin-bottom: 16px;
 }
 
+#alert> img{
+    width: 16px;
+}
+
+#alert>p {
+
+    width: 205px;
+    height: 18px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #495057;
+    opacity: 0.8;
+}
+
+.botonera {
+    margin: 669px 80px 72px 116px;
+    width: fit-content;
+}
+
+#botones {
+    display: flex;
+    gap: 24px;
+}
+
+#botones button {
+
+    height: 67px;
+    width: 328px;
+    left: 0px;
+    top: 0px;
+    border-radius: 24px;
+    padding: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+#encriptar {
+
+    color: white;
+    background-color: #0A3871;
+}
+
+#desencriptar {
+
+    background-color: #D8DFE8;
+    border: 1px solid #0A3871;
+}
+
+.blue-text {
+    color: #0A3871;
+}
