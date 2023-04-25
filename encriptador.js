@@ -1,38 +1,73 @@
-const reemplazos = {
-    a: "ai",
-    e: "enter",
-    i: "imes",
-    o: "ober",
-    u: "ufat"
+let input = document.querySelector("#input");
+
+input.focus();
+document.querySelector("#encriptar").addEventListener("click", () => { encriptar("encriptar") })
+document.querySelector("#desencriptar").addEventListener("click", () => { encriptar("desencriptar") })
+
+
+function validarInput() {
+
+    formatearOutput();
+    let inputNormalizado;
+    inputNormalizado = input.value.replaceAll('á', 'a');
+    inputNormalizado = inputNormalizado.replaceAll('é', 'e');
+    inputNormalizado = inputNormalizado.replaceAll('í', 'i');
+    inputNormalizado = inputNormalizado.replaceAll('ó', 'o');
+    inputNormalizado = inputNormalizado.replaceAll('ú', 'u');
+    inputNormalizado = inputNormalizado.replaceAll('ñ', 'n');
+
+    return inputNormalizado
+
 }
 
-let palabra = "murcielago";
+function formatearOutput() {
 
+    if (input.value === "") {
 
-function encriptar(string,bool) {
-    if(bool===true){
-        let arrString=[]
+        document.getElementById("output").setAttribute("class", "output-image");
+        document.getElementById("output").value = "";
+        document.querySelectorAll(".output>h3, .output>p").forEach(el => el.removeAttribute("hidden"));
+        document.getElementById("copiar").setAttribute("hidden", "")
 
-        for(let i=0;i<string.length;i++){
-            if(reemplazos.hasOwnProperty(string[i])){
-                arrString.push(reemplazos[string[i]]);
-    
-            }else arrString.push(string[i]);
-        }
-        console.log(arrString.join(''))
-        return arrString.join('');
-    }else{
-        const desencriptar = Object.values(reemplazos);
-        let palabraNueva = string;
-    
-        for (let i = 0; i < desencriptar.length; i++) {
-            palabraNueva = palabraNueva.replaceAll(desencriptar[i],desencriptar[i][0]);
-        }
-        console.log(palabraNueva)
-        return (palabraNueva);
+    }
+    else {
+        document.getElementById("output").removeAttribute("class", "output-image");
+        document.querySelectorAll(".output>h3, .output>p").forEach(el => el.setAttribute('hidden', ''));
+        document.getElementById("copiar").removeAttribute("hidden")
     }
 }
 
-encriptar(palabra,true)
+function encriptar(string) {
+
+    const inputNormalizado = validarInput()
+    const reemplazos = {
+        a: "ai",
+        e: "enter",
+        i: "imes",
+        o: "ober",
+        u: "ufat"
+    }
+
+    if (string === "encriptar") {
+        let arrString = []
+
+        for (let i = 0; i < inputNormalizado.length; i++) {
+            if (reemplazos.hasOwnProperty(inputNormalizado[i])) {
+                arrString.push(reemplazos[inputNormalizado[i]]);
+
+            } else arrString.push(inputNormalizado[i]);
+        }
+        document.getElementById("output").value = arrString.join('')
+
+    } else if (string === "desencriptar") {
+        const desencriptar = Object.values(reemplazos);
+        let palabraNueva = inputNormalizado;
+
+        for (let i = 0; i < desencriptar.length; i++) {
+            palabraNueva = palabraNueva.replaceAll(desencriptar[i], desencriptar[i][0]);
+        }
+        document.getElementById("output").value = palabraNueva;
+    }
+}
 
 
