@@ -1,9 +1,9 @@
-let input = document.querySelector("#input");
+const input = document.querySelector("#input");
+const copy=document.getElementById("#copiar");
 
-input.focus();
-document.querySelector("#encriptar").addEventListener("click", () => { encriptar("encriptar") })
-document.querySelector("#desencriptar").addEventListener("click", () => { encriptar("desencriptar") })
-
+document.querySelector("#encriptar").addEventListener("click", () => { encriptar("encriptar") });
+document.querySelector("#desencriptar").addEventListener("click", () => { encriptar("desencriptar") });
+document.querySelector("#copiar").addEventListener("click",()=>{copiarEncriptado()});
 
 function validarInput() {
 
@@ -69,5 +69,17 @@ function encriptar(string) {
         document.getElementById("output").value = palabraNueva;
     }
 }
+
+function copiarEncriptado(){
+
+    let copy=document.querySelector("#output").value;
+
+    navigator.clipboard.writeText(copy).then(()=>{
+
+        document.getElementById("input").value=copy;
+        document.getElementById("output").value="";
+    });
+}
+
 
 
